@@ -1,0 +1,68 @@
+/* WhyChooseUs.css */
+.why-choose-us {
+    background-color: #081D48;
+    color: white;
+}
+
+.why-choose-us .section-title {
+    color: white;
+}
+
+.why-choose-us .section-title::after {
+    background-color: var(--color-accent);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.why-header .description {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-top: 2rem;
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.feature-item h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}

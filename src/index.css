@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-brand-primary: #143AC4;
+  --color-brand-secondary: #081D48;
+  --color-accent: #2dd4bf;
+  --font-main: 'Montserrat', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+}
+
+@theme {
+  --color-primary: var(--color-brand-primary);
+  --color-secondary: var(--color-brand-secondary);
+  --color-accent: var(--color-accent);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--color-brand-secondary);
+}
+
+.section-padding {
+  padding: 100px 5%;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 5%;
+  }
+}
