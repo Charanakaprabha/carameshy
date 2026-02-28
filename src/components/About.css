@@ -10,27 +10,22 @@
     align-items: center;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 60px;
-    height: 4px;
-    background-color: var(--color-brand-primary);
+.about-content {
+    border-right: 1px solid #e2e8f0;
+    padding-right: 2rem;
 }
 
 .lead-text {
     font-size: 1.25rem;
     color: var(--color-brand-secondary);
+    line-height: 1.8;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.about-mobile-profile {
+    display: none;
 }
 
 .stats-grid {
@@ -41,11 +36,14 @@
 }
 
 .stat-item {
-    background: white;
+    background: transparent;
     padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     text-align: center;
+    border-right: 1px solid #e2e8f0;
+}
+
+.stat-item:last-child {
+    border-right: none;
 }
 
 .stat-item h3 {
@@ -61,16 +59,19 @@
 }
 
 .highlight-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: transparent;
+    padding: 2rem 0;
     margin-bottom: 2rem;
-    border-left: 5px solid var(--color-brand-primary);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.highlight-card:last-child {
+    border-bottom: none;
 }
 
 .highlight-card h3 {
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .highlight-card ul {
@@ -79,17 +80,57 @@
 
 .highlight-card li {
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 400;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #475569;
+}
+
+.highlight-card li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-brand-primary);
+    font-weight: bold;
 }
 
 @media (max-width: 1024px) {
     .about-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-content {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding-right: 0;
+        padding-bottom: 2rem;
     }
 }
 
 @media (max-width: 640px) {
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .stat-item {
+        border-right: 1px solid #e2e8f0;
+        border-bottom: none;
+        padding: 0.5rem;
+    }
+
+    .stat-item:last-child {
+        border-right: none;
+    }
+
+    .stat-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .stat-item p {
+        font-size: 0.7rem;
+        white-space: nowrap;
     }
 }

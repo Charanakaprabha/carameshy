@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Hero.css';
 import Logo from '../assets/Logo.svg';
-import ProfileImage from '../assets/ProfileImage.svg';
-import { Calculator, Check, Plus, X } from 'lucide-react';
+import ProfileImage from '../assets/ProfileImage.png';
+import { Calculator, Check, Plus, X, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [curveRadius, setCurveRadius] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // max curve radius capped carefully to match header (30px)
+            const newRadius = Math.min(window.scrollY / 2, 30);
+            setCurveRadius(newRadius);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const services = [
         "Your own dedicated accountant",
@@ -25,7 +37,14 @@ const Hero = () => {
     ];
 
     return (
-        <section className="hero-section">
+        <section
+            className="hero-section"
+            style={{
+                borderBottomLeftRadius: `50% ${curveRadius}px`,
+                borderBottomRightRadius: `50% ${curveRadius}px`,
+                transition: 'border-radius 0.1s ease-out'
+            }}
+        >
             <div className="hero-content">
                 <h1 className="hero-title">
                     Expert Financial <br />
@@ -34,15 +53,15 @@ const Hero = () => {
 
                 <div className="hero-points">
                     <div className="hero-point">
-                        <Check size={20} className="check-icon" />
+                        <span className="about-tick-style">✓</span>
                         <span>Your own dedicated online accountant</span>
                     </div>
                     <div className="hero-point">
-                        <Check size={20} className="check-icon" />
+                        <span className="about-tick-style">✓</span>
                         <span>Completion of your accounts and tax returns</span>
                     </div>
                     <div className="hero-point">
-                        <Check size={20} className="check-icon" />
+                        <span className="about-tick-style">✓</span>
                         <span>MTD-ready accounting software (Pandle)</span>
                     </div>
                     <button className="view-details-link" onClick={() => setIsModalOpen(true)}>
@@ -50,9 +69,9 @@ const Hero = () => {
                     </button>
                 </div>
 
-                <div className="hero-btns">
-                    <button className="get-started-btn" onClick={() => window.location.href = '#contact-us'}>
-                        Get Started
+                <div className="hero-cta">
+                    <button className="get-started-btn" onClick={() => setIsModalOpen(true)}>
+                        Get Started <ArrowRight size={20} style={{ display: 'inline', marginLeft: '8px', verticalAlign: 'middle' }} />
                     </button>
                 </div>
             </div>

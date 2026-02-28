@@ -1,6 +1,6 @@
 /* Resources.css */
 .resources-section {
-    background-color: #f8fafc;
+    background: #eff6ff;
 }
 
 .resources-grid {
@@ -9,6 +9,8 @@
     gap: 2rem;
     margin-top: 3rem;
 }
+
+/* Removed white title override */
 
 .resource-card {
     background: white;
@@ -29,7 +31,7 @@
 .resource-icon {
     width: 50px;
     height: 50px;
-    background: #f0f7ff;
+    background: transparent;
     color: var(--color-brand-primary);
     display: flex;
     align-items: center;

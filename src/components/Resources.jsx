@@ -13,6 +13,9 @@ const Resources = () => {
         <section id="resources" className="resources-section section-padding">
             <div className="container">
                 <h2 className="section-title text-center">Resources & Downloads</h2>
+                <p className="section-description text-center" style={{ marginTop: '1rem', color: '#64748b', maxWidth: '600px', margin: '1rem auto 3rem auto' }}>
+                    Access our collection of free tools, guides, and templates to help manage your finances and stay compliant.
+                </p>
                 <div className="resources-grid">
                     {resources.map((resource, index) => (
                         <div className="resource-card" key={index}>

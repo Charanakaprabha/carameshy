@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
+
+::selection {
+  background-color: rgba(20, 58, 196, 0.2);
+  color: #000;
+}
 
 :root {
   --color-brand-primary: #143AC4;
@@ -7,6 +12,7 @@
   --color-accent: #2dd4bf;
   --font-main: 'Montserrat', sans-serif;
   --font-secondary: 'Lato', sans-serif;
+  --font-title: 'Rubik', sans-serif;
 }
 
 @theme {
@@ -20,12 +26,18 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: var(--font-secondary);
   color: #333;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  background-color: #f8fafc;
 }
 
 h1,
@@ -34,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-main);
+  font-family: var(--font-title);
   font-weight: 700;
   color: var(--color-brand-secondary);
 }
@@ -43,8 +55,51 @@ h6 {
   padding: 100px 5%;
 }
 
+.section-title {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--underline-progress, 0%);
+  max-width: 50%;
+  height: 4px;
+  background-color: currentColor;
+}
+
+.section-title.text-center::after {
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 25%;
+}
+
 @media (max-width: 768px) {
   .section-padding {
-    padding: 60px 5%;
+    padding: 60px 4%;
+  }
+
+  .section-title {
+    font-size: 3.0rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 40px 4%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
   }
 }

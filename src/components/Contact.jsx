@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.css';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
     return (
@@ -14,7 +14,7 @@ const Contact = () => {
                             <div className="info-icon"><MapPin /></div>
                             <div>
                                 <h3>Address</h3>
-                                <p>50-92-31/1, 1st Floor, Shantipuram, Visakhapatnam, Andhra Pradesh 530016</p>
+                                <p>near HP petrol bunk , Gopalapatnam , beside lenkart , 530027<br />D no: 3-52</p>
                             </div>
                         </div>
                         <div className="info-item">
@@ -48,28 +48,30 @@ const Contact = () => {
                     <div className="contact-form-container">
                         <form className="contact-form">
                             <div className="form-group">
-                                <label>Full Name</label>
-                                <input type="text" placeholder="Ramesh" required />
+                                <input type="text" id="name" placeholder=" " required />
+                                <label htmlFor="name">Full Name</label>
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" placeholder="ramesh@example.com" required />
+                                    <input type="email" id="email" placeholder=" " required />
+                                    <label htmlFor="email">Email Address</label>
                                 </div>
                                 <div className="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="tel" placeholder="+91 74167 70618" />
+                                    <input type="tel" id="phone" placeholder=" " />
+                                    <label htmlFor="phone">Phone Number</label>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label>Subject</label>
-                                <input type="text" placeholder="Inquiry about Tax Filing" required />
+                                <input type="text" id="subject" placeholder=" " required />
+                                <label htmlFor="subject">Subject</label>
                             </div>
                             <div className="form-group">
-                                <label>How can we help you?</label>
-                                <textarea rows="5" placeholder="Your message here..." required></textarea>
+                                <textarea id="message" rows="5" placeholder=" " required></textarea>
+                                <label htmlFor="message">How can we help you?</label>
                             </div>
-                            <button type="submit" className="submit-btn" onClick={(e) => e.preventDefault()}>Send Message</button>
+                            <button type="submit" className="submit-btn" onClick={(e) => e.preventDefault()}>
+                                Send Message <ArrowRight size={20} style={{ marginLeft: '8px' }} />
+                            </button>
                         </form>
                     </div>
                 </div>

@@ -30,6 +30,9 @@ const Services = () => {
         <section id="services" className="services-section section-padding">
             <div className="container">
                 <h2 className="section-title text-center">Our Professional Services</h2>
+                <p className="section-description text-center" style={{ marginTop: '1rem', color: '#64748b', maxWidth: '600px', margin: '1rem auto 3rem auto' }}>
+                    We offer a comprehensive suite of financial and advisory services designed to help your business thrive and remain compliant.
+                </p>
                 <div className="services-grid">
                     {serviceData.map((service, index) => (
                         <div className="service-card" key={index}>
