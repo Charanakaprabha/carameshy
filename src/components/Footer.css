@@ -119,6 +119,10 @@
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .footer-logo-container {
+        padding-left: 30px;
+    }
 }
 
 @media (max-width: 480px) {
