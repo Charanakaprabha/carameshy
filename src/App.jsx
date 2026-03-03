@@ -7,24 +7,22 @@ import WhyChooseUs from './components/WhySelection.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import BackToTop from './components/BackToTop.jsx';
+import WhatsAppContact from './components/WhatsAppContact.jsx';
 import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
+    // Underline progress scroll observer (existing)
     const handleScroll = () => {
       const titles = document.querySelectorAll('.section-title');
       const windowHeight = window.innerHeight;
 
       titles.forEach(title => {
         const rect = title.getBoundingClientRect();
-        // Calculate how much of the element has scrolled past the bottom of the viewport
-        // Progress goes from 0 (just appeared at bottom) to 100 (reached the top/middle)
         let progress = 0;
 
         if (rect.top < windowHeight && rect.bottom > 0) {
-          // Element is visible
-          // Delay the start by offsetting windowHeight
-          const offset = 350; // pixels to wait before starting
+          const offset = 350;
           const effectiveHeight = windowHeight - offset;
           const visibilityRatio = (effectiveHeight - rect.top) / effectiveHeight;
 
@@ -34,7 +32,6 @@ function App() {
             progress = 0;
           }
         } else if (rect.bottom <= 0) {
-          // Scrolled past top
           progress = 100;
         }
 
@@ -42,22 +39,40 @@ function App() {
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial call
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Lazy load reveal observer (new)
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1, // Trigger when 10% of element is visible
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    const hiddenElements = document.querySelectorAll('.scroll-animate');
+    hiddenElements.forEach((el) => fadeObserver.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      hiddenElements.forEach((el) => fadeObserver.unobserve(el));
+    };
   }, []);
 
   return (
     <div className="app-container">
       <Navbar />
       <Hero />
-      <About />
-      <Services />
-      <Resources />
-      <WhyChooseUs />
-      <Contact />
+      <div className="scroll-animate"><About /></div>
+      <div className="scroll-animate"><Services /></div>
+      <div className="scroll-animate"><Resources /></div>
+      <div className="scroll-animate"><WhyChooseUs /></div>
+      <div className="scroll-animate"><Contact /></div>
+      <WhatsAppContact />
       <BackToTop />
       <Footer />
     </div>
