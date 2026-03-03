@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import Logo from '../assets/Logo.svg';
+import Logo from '../assets/ca_india_logo.svg';
 import { Calculator, Menu, X } from 'lucide-react';
 
 const Navbar = () => {

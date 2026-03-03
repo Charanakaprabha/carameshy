@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import Logo from '../assets/Logo.svg';
+import Logo from '../assets/ca_india_logo.svg';
 import { Linkedin } from 'lucide-react';
 
 const Footer = () => {

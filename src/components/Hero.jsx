@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Hero.css';
-import Logo from '../assets/Logo.svg';
 import ProfileImage from '../assets/ProfileImage.png';
 import { Calculator, Check, Plus, X, ArrowRight } from 'lucide-react';
 

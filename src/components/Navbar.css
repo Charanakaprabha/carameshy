@@ -37,8 +37,9 @@
 }
 
 .nav-logo {
-    width: 170px;
-    height: auto;
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -222,6 +223,7 @@
 
 @media (max-width: 480px) {
     .nav-logo {
-        width: 130px;
+        max-height: 45px;
+        width: auto;
     }
 }
