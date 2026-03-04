@@ -45,7 +45,7 @@ const Navbar = () => {
                 <ul className="nav-links">
                     <li><a href="#about-us">About us</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#resources">Resources</a></li>
+                    {/* <li><a href="#resources">Resources</a></li> */}
                     <li><a href="#why-choose-us">Why choose us</a></li>
                 </ul>
 
@@ -68,7 +68,7 @@ const Navbar = () => {
                 <ul className="mobile-links">
                     <li><a href="#about-us" onClick={closeMenu}>About us</a></li>
                     <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                    <li><a href="#resources" onClick={closeMenu}>Resources</a></li>
+                    {/* <li><a href="#resources" onClick={closeMenu}>Resources</a></li> */}
                     <li><a href="#why-choose-us" onClick={closeMenu}>Why choose us</a></li>
                     <li><a href="#contact-us" onClick={closeMenu}>Contact Us</a></li>
                 </ul>
